@@ -1,0 +1,18 @@
+upstream project{
+	server localhost:3000;
+	server localhost:3001;
+	server localhost:3002;
+	server localhost:3003;
+
+}
+
+server {
+	#listen to port 80
+	listen 80;
+	#forward connection to porject server group
+	location / {
+		proxy_pass http://project;
+	}
+
+
+}
