@@ -15,6 +15,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
 	res.render('index.hbs', { nodeName: nodeName, layout:'layout.hbs' });
+	console.log('GET request / ');
 });
 
 app.listen(port, () => {
