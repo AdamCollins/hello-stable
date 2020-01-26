@@ -6,15 +6,14 @@ WORKDIR /usr/src/app
 #install nginx
 RUN apt-get -y update
 RUN apt-get -y install nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx-config/default /etc/nginx/sites-enabled/
 
 #install node server
-COPY node-server .
-RUN cd node-server 
+ADD node-server .
 RUN npm install
 
 #Setup start.sh
-RUN cd ..
+COPY start.sh ./start.sh
 RUN chmod +x start.sh
 
 
