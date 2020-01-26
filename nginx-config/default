@@ -14,7 +14,7 @@ server {
 		proxy_pass http://project;
 	}
 
-	location ~* \.(css|js|gif|jpe?g|png){
+	location *\.(css|js|gif|jpe?g|png)$ {
 		expires 168h;
 	}
 
